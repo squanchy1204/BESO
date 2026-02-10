@@ -3,16 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>San Valentín 💘</title>
+
     <style>
         body {
             background-color: #ffe6eb;
             font-family: Arial, sans-serif;
             text-align: center;
-            margin-top: 100px;
+            margin-top: 60px;
         }
 
         h1 {
             color: #e6005c;
+        }
+
+        .imagen {
+            width: 260px;
+            border-radius: 20px;
+            margin: 20px auto;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            display: none;
         }
 
         button {
@@ -28,58 +37,73 @@
         #si {
             background-color: #ff4d88;
             color: white;
-            font-size: 20px;
         }
 
         #no {
             background-color: #999;
             color: white;
-            font-size: 20px;
         }
     </style>
 </head>
+
 <body>
 
     <h1>💘 ¿Quieres ser mi San Valentín? 💘</h1>
 
-    <button id="si" onclick="aceptar()">Sí 💖</button>
-    <button id="no" onclick="rechazar()">No 💔</button>
+    <img id="foto" class="imagen" src="img/malo_1.jpg" alt="foto">
+
+    <div>
+        <button id="si" onclick="aceptar()">Sí 💖</button>
+        <button id="no" onclick="rechazar()">No 💔</button>
+    </div>
 
 <script>
     let tamañoSi = 20;
     let tamañoNo = 20;
+    let indiceImagen = 0;
+
+    const imagenes = [
+        "img/malo_1.jpg",
+        "img/malo_2.gif"
+    ];
 
     const frasesNo = [
         "No 💔",
-        "el zi esta al otro lado",
-        "Piénsalo bien 🥺",
-        "pensaste mal",
-        "yo se que mientes 😡",
-        "pofavo 😳"
+        "¿segura? 🥺",
+        "piénsalo bien 😳",
+        "ya casi dices sí 😈",
+        "no te creo 😡"
     ];
 
-    let indice = 0;
+    let indiceFrase = 0;
 
     function rechazar() {
-        tamañoSi += 5;
-        tamañoNo -= 2;
+        // Cambiar imagen
+        indiceImagen = (indiceImagen + 1) % imagenes.length;
+        const foto = document.getElementById("foto");
+        foto.src = imagenes[indiceImagen];
+        foto.style.display = "block";
+
+        // Cambiar tamaño botones
+        tamañoSi += 6;
+        tamañoNo -= 3;
 
         document.getElementById("si").style.fontSize = tamañoSi + "px";
         document.getElementById("no").style.fontSize = tamañoNo + "px";
 
-        indice++;
-        if (indice < frasesNo.length) {
-            document.getElementById("no").innerText = frasesNo[indice];
-        }
+        // Cambiar texto del NO
+        indiceFrase = (indiceFrase + 1) % frasesNo.length;
+        document.getElementById("no").innerText = frasesNo[indiceFrase];
 
-        if (tamañoNo <= 5) {
+        // Ocultar NO si es muy pequeño
+        if (tamañoNo <= 6) {
             document.getElementById("no").style.display = "none";
         }
     }
 
     function aceptar() {
         document.body.innerHTML = `
-            <h1>🥰 Sabía que dirías que sí, besito besito wuapa 💖</h1>
+            <h1>🥰 Sabía que dirías que sí 💖</h1>
             <p>Feliz San Valentín 💕</p>
         `;
     }
