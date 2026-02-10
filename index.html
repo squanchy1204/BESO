@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>San Valentín 💘</title>
+    <style>
+        body {
+            background-color: #ffe6eb;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        h1 {
+            color: #e6005c;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 15px 30px;
+            margin: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #si {
+            background-color: #ff4d88;
+            color: white;
+            font-size: 20px;
+        }
+
+        #no {
+            background-color: #999;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>💘 ¿Quieres ser mi San Valentín? 💘</h1>
+
+    <button id="si" onclick="aceptar()">Sí 💖</button>
+    <button id="no" onclick="rechazar()">No 💔</button>
+
+<script>
+    let tamañoSi = 20;
+    let tamañoNo = 20;
+
+    const frasesNo = [
+        "No 💔",
+        "el zi esta al otro lado",
+        "Piénsalo bien 🥺",
+        "pensaste mal",
+        "yo se que mientes 😡",
+        "pofavo 😳"
+    ];
+
+    let indice = 0;
+
+    function rechazar() {
+        tamañoSi += 5;
+        tamañoNo -= 2;
+
+        document.getElementById("si").style.fontSize = tamañoSi + "px";
+        document.getElementById("no").style.fontSize = tamañoNo + "px";
+
+        indice++;
+        if (indice < frasesNo.length) {
+            document.getElementById("no").innerText = frasesNo[indice];
+        }
+
+        if (tamañoNo <= 5) {
+            document.getElementById("no").style.display = "none";
+        }
+    }
+
+    function aceptar() {
+        document.body.innerHTML = `
+            <h1>🥰 Sabía que dirías que sí 💖</h1>
+            <p>Feliz San Valentín 💕</p>
+        `;
+    }
+</script>
+
+</body>
+</html>
