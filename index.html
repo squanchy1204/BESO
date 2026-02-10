@@ -1,104 +1,98 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>San Valentín 💘</title>
+<meta charset="UTF-8">
+<title>San Valentín 💘</title>
 
-    <style>
-        body {
-            background-color: #ffe6eb;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 60px;
-        }
+<style>
+    body {
+        background-color: #ffe6eb;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        overflow: hidden;
+    }
 
-        h1 {
-            color: #e6005c;
-        }
+    h1 {
+        color: #e6005c;
+        margin-top: 40px;
+        position: relative;
+        z-index: 2;
+    }
 
-        .imagen {
-            width: 260px;
-            border-radius: 20px;
-            margin: 20px auto;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            display: none;
-        }
+    .imagen {
+        width: 260px;
+        border-radius: 20px;
+        margin: 20px auto;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        display: none;
+        position: relative;
+        z-index: 2;
+    }
 
-        button {
-            font-size: 20px;
-            padding: 15px 30px;
-            margin: 20px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+    button {
+        font-size: 20px;
+        padding: 15px 30px;
+        margin: 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+    }
 
-        #si {
-            background-color: #ff4d88;
-            color: white;
-        }
+    #si { background-color: #ff4d88; color: white; }
+    #no { background-color: #999; color: white; }
 
-        #no {
-            background-color: #999;
-            color: white;
-        }
+    /* ❤️ CORAZÓN PIXEL ❤️ */
+    .pixel-heart {
+        position: fixed;
+        bottom: -40px;
+        width: 20px;
+        height: 20px;
+        background: red;
+        box-shadow:
+            20px 0 red,
+            -20px 0 red,
+            0 -20px red,
+            20px -20px red,
+            -20px -20px red,
+            0 -40px red;
+        animation: subir linear forwards;
+        cursor: pointer;
+        z-index: 9999;
+    }
 
-        /* ❤️ CORAZONES ❤️ */
-        .corazon {
-            position: fixed;
-            font-size: 28px;
-            cursor: pointer;
-            animation: flotar 6s linear forwards;
-            user-select: none;
-            z-index: 9999;
-        }
+    @keyframes subir {
+        from { transform: translateY(0); }
+        to { transform: translateY(-120vh); }
+    }
 
-        @keyframes flotar {
-            from {
-                transform: translateY(110vh);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(-10vh);
-                opacity: 0;
-            }
-        }
+    .reventar {
+        animation: explotar 0.4s forwards;
+    }
 
-        .explosion {
-            animation: explotar 0.6s forwards;
-        }
-
-        @keyframes explotar {
-            from {
-                transform: scale(1);
-                opacity: 1;
-            }
-            to {
-                transform: scale(3);
-                opacity: 0;
-            }
-        }
-    </style>
+    @keyframes explotar {
+        from { transform: scale(1); opacity: 1; }
+        to { transform: scale(2.5); opacity: 0; }
+    }
+</style>
 </head>
 
 <body>
 
-    <h1>💘 ¿Quieres ser mi San Valentín? 💘</h1>
+<h1 id="titulo">💘 ¿Quieres ser mi San Valentín? 💘</h1>
 
-    <img id="foto" class="imagen" src="img/malo_1.gif" alt="foto">
+<img id="foto" class="imagen" src="img/malo_1.gif" alt="foto">
 
-    <div>
-        <button id="si" onclick="aceptar()">Sí 💖</button>
-        <button id="no" onclick="rechazar()">No 💔</button>
-    </div>
+<div>
+    <button id="si" onclick="aceptar()">Sí 💖</button>
+    <button id="no" onclick="rechazar()">No 💔</button>
+</div>
 
 <script>
-    let tamañoSi = 20;
-    let tamañoNo = 20;
-    let indiceImagen = 0;
-    let indiceFrase = 0;
-
+    /* 🖼️ IMÁGENES DEL NO */
     const imagenes = [
         "img/malo_1.gif",
         "img/malo_2.jpg",
@@ -116,61 +110,76 @@
         "pofavo 🥺"
     ];
 
+    let indiceImagen = 0;
+    let indiceFrase = 0;
+    let tamañoSi = 20;
+    let tamañoNo = 20;
+
     function rechazar() {
         indiceImagen = (indiceImagen + 1) % imagenes.length;
         const foto = document.getElementById("foto");
         foto.src = imagenes[indiceImagen];
         foto.style.display = "block";
 
-        tamañoSi += 6;
-        tamañoNo -= 3;
-
-        document.getElementById("si").style.fontSize = tamañoSi + "px";
-        document.getElementById("no").style.fontSize = tamañoNo + "px";
-
         indiceFrase = (indiceFrase + 1) % frasesNo.length;
         document.getElementById("no").innerText = frasesNo[indiceFrase];
+
+        tamañoSi += 6;
+        tamañoNo -= 3;
+        document.getElementById("si").style.fontSize = tamañoSi + "px";
+        document.getElementById("no").style.fontSize = tamañoNo + "px";
 
         if (tamañoNo <= 6) {
             document.getElementById("no").style.display = "none";
         }
     }
 
-    /* ❤️ CORAZONES ❤️ */
+    /* ❤️ CORAZONES PIXEL ❤️ */
     let corazones = [];
-
-    function llenarPantallaDeCorazones() {
-        for (let i = 0; i < 70; i++) {
-            setTimeout(crearCorazon, i * 80);
-        }
-    }
+    let reaccionIniciada = false;
 
     function crearCorazon() {
-        const corazon = document.createElement("div");
-        corazon.className = "corazon";
-        corazon.innerText = "❤️";
-
-        corazon.style.left = Math.random() * 100 + "vw";
-        corazon.style.animationDuration = (Math.random() * 3 + 4) + "s";
-
-        corazon.addEventListener("click", explotarTodos);
-
-        document.body.appendChild(corazon);
-        corazones.push(corazon);
-
-        setTimeout(() => corazon.remove(), 7000);
+        const c = document.createElement("div");
+        c.className = "pixel-heart";
+        c.style.left = Math.random() * 100 + "vw";
+        c.style.animationDuration = (Math.random() * 2 + 4) + "s";
+        c.addEventListener("click", () => iniciarReaccion(c));
+        document.body.appendChild(c);
+        corazones.push(c);
     }
 
-    function explotarTodos() {
-        corazones.forEach((c, i) => {
-            setTimeout(() => {
-                c.classList.add("explosion");
-                setTimeout(() => c.remove(), 600);
-            }, i * 40);
-        });
-        corazones = [];
+    function llenarPantalla() {
+        const intervalo = setInterval(() => {
+            for (let i = 0; i < 8; i++) crearCorazon();
+        }, 200);
+        setTimeout(() => clearInterval(intervalo), 4500);
     }
 
+    function iniciarReaccion(corazonInicial) {
+        if (reaccionIniciada) return;
+        reaccionIniciada = true;
+
+        corazonInicial.classList.add("reventar");
+        setTimeout(() => corazonInicial.remove(), 400);
+
+        setTimeout(() => {
+            let i = 0;
+            const cadena = setInterval(() => {
+                if (i >= corazones.length) {
+                    clearInterval(cadena);
+                    return;
+                }
+                const c = corazones[i];
+                if (c && c !== corazonInicial) {
+                    c.classList.add("reventar");
+                    setTimeout(() => c.remove(), 400);
+                }
+                i++;
+            }, 500);
+        }, 2000);
+    }
+
+    /* ❤️ CUANDO DICE SÍ */
     function aceptar() {
         document.body.innerHTML = `
             <h1>🥰 Sabía que dirías que sí 💖</h1>
@@ -178,12 +187,11 @@
             <h1>😍 WUAPAAAAA 😍</h1>
             <h1>💘 TE QUIERO MUCHO 💘</h1>
 
-            <img src="img/bueno_1.gif" style="width:300px; border-radius:20px;">
+            <img src="img/bueno_1.webp" style="width:300px;border-radius:20px;position:relative;z-index:2;">
 
             <p>Haz click en un corazón ❤️</p>
         `;
-
-        llenarPantallaDeCorazones();
+        llenarPantalla();
     }
 </script>
 
