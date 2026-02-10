@@ -61,6 +61,7 @@
     let tamañoSi = 20;
     let tamañoNo = 20;
     let indiceImagen = 0;
+    let indiceFrase = 0;
 
     const imagenes = [
         "img/malo_1.jpg",
@@ -75,20 +76,18 @@
         "¿segura? 🥺",
         "piénsalo bien 😳",
         "pensaste mal 😡",
-        "yo se que si quieres 😡"
+        "yo sé que sí quieres 😏",
         "pofavo 🥺"
     ];
 
-    let indiceFrase = 0;
-
     function rechazar() {
-        // Cambiar imagen
+        // Mostrar y cambiar imagen
         indiceImagen = (indiceImagen + 1) % imagenes.length;
         const foto = document.getElementById("foto");
         foto.src = imagenes[indiceImagen];
         foto.style.display = "block";
 
-        // Cambiar tamaño botones
+        // Cambiar tamaños
         tamañoSi += 6;
         tamañoNo -= 3;
 
@@ -99,7 +98,7 @@
         indiceFrase = (indiceFrase + 1) % frasesNo.length;
         document.getElementById("no").innerText = frasesNo[indiceFrase];
 
-        // Ocultar NO si es muy pequeño
+        // Ocultar NO si se hace muy pequeño
         if (tamañoNo <= 6) {
             document.getElementById("no").style.display = "none";
         }
@@ -108,9 +107,9 @@
     function aceptar() {
         document.body.innerHTML = `
             <h1>🥰 Sabía que dirías que sí 💖</h1>
-            <h1>BESITO BESITO</h1>
-            <h1>WUAPAAAAA</h1>
-            <h1>TE QUIERO MUCHO</h1>
+            <h1> BESITO BESITO </h1>
+            <h1> WUAPAAAAA </h1>
+            <h1> TE QUIERO MUCHO </h1>
             <p>Feliz San Valentín 💕</p>
         `;
     }
