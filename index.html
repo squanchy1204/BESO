@@ -376,6 +376,10 @@ button {
 </div>
 
 <script>
+function iniciarMusica() {
+    const audio = document.getElementById("musica");
+    audio.play();
+}
 
 function irPantalla2() {
     iniciarMusica(); // 🎵 inicia audio aquí
@@ -476,6 +480,8 @@ function explotar(c) {
 </script>
 
 <div id="contenedor-corazones"></div>
+
+<audio id="musica" src="musica.mp3" loop></audio>
 
 </body>
 </html>
