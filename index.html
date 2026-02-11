@@ -284,16 +284,14 @@ button {
 </div>
 
 <div class="caja-papel" id="caja-pregunta">
-
     <h1 id="titulo">💘 ¿Quieres ser mi San Valentín? 💘</h1>
+</div>
 
-    <img id="foto" class="imagen" src="img/malo_1.gif">
+<img id="foto" class="imagen" src="img/malo_1.gif">
 
-    <div id="botones">
-        <button id="si" onclick="aceptar()">Sí 💖</button>
-        <button id="no" onclick="rechazar()">No 💔</button>
-    </div>
-
+<div id="botones">
+    <button id="si" onclick="aceptar()">Sí 💖</button>
+    <button id="no" onclick="rechazar()">No 💔</button>
 </div>
 
 <div id="final">
@@ -304,9 +302,10 @@ button {
         <h1>😍 WUAPAAAAA 😍</h1>
         <h1>💘 TE QUIERO MUCHO 💘</h1>
 
-        <img src="img/bueno_1.webp" style="width:900px;border-radius:60px;">
-
     </div>
+
+    <img src="img/bueno_1.webp" style="width:900px;border-radius:60px;">
+
 </div>
 
 <script>
@@ -319,9 +318,9 @@ let iTxt = 0;
 const imagenes = [
     "img/malo_1.gif",
     "img/malo_2.jpg",
-    "img/malo_3.webp",
-    "img/malo_4.jpg",
-    "img/malo_5.gif"
+    "img/malo_3.png",
+    "img/malo_4.png",
+    "img/malo_5.webp"
 ];
 
 const frasesNo = [
@@ -355,6 +354,7 @@ let reventados = 0;
 const MAX = 70;
 
 function aceptar() {
+    document.getElementById("caja-pregunta").style.display = "none";
     titulo.style.display = "none";
     botones.style.display = "none";
     foto.style.display = "none";
