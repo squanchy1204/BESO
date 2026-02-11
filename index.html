@@ -211,31 +211,40 @@ button {
 }
 
 /* ❤️ FINAL SECUENCIA ❤️ */
+/* ❤️ FINAL NUEVO ❤️ */
+
 #final {
     display: none;
-    text-align: center;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
 }
 
+/* PAPEL ARRIBA CENTRADO */
 #final-papel {
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 650px;
-    height: 550px;
-    z-index: 1;   /* ATRÁS */
+    height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-#final-contenido {
+/* TEXTO */
+#final-texto h1 {
+    font-size: 48px;
+}
+
+/* IMAGEN ABAJO */
+#final-imagen {
     position: absolute;
-    top: 50%;
+    top: 72%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;   /* ADELANTE */
-}
-
-#final-contenido h1 {
-    font-size: 25px;   /* antes era 72px aprox */
+    transform: translateX(-50%);
 }
 
 </style>
@@ -410,19 +419,21 @@ button {
     <button id="no" onclick="rechazar()">No 💔</button>
     </div>
 
-    <div id="final">
+<div id="final">
 
-    <!-- PAPEL SOLO -->
-    <div id="final-papel" class="caja-papel-final" style="display:none;"></div>
+    <!-- PAPEL CON TEXTO -->
+    <div id="final-papel" class="caja-papel-final" style="display:none;">
+        <div id="final-texto">
+            <h1>🥰 Sabía que dirías que sí 💖</h1>
+            <h1>💋 BESITO BESITO 💋</h1>
+            <h1>😍 WUAPAAAAA 😍</h1>
+            <h1>💘 TE QUIERO MUCHO 💘</h1>
+        </div>
+    </div>
 
-    <!-- TEXTO + IMAGEN -->
-    <div id="final-contenido" style="display:none;">
-        <h1>🥰 Sabía que dirías que sí 💖</h1>
-        <h1>💋 BESITO BESITO 💋</h1>
-        <h1>😍 WUAPAAAAA 😍</h1>
-        <h1>💘 TE QUIERO MUCHO 💘</h1>
-
-        <img src="img/bueno_2.webp" class="imagen pequeña" style="display:block;">
+    <!-- IMAGEN ABAJO FUERA DEL PAPEL -->
+    <div id="final-imagen" style="display:none;">
+        <img src="img/bueno_2.webp" class="imagen pequeña">
     </div>
 
 </div>
@@ -524,22 +535,20 @@ function explotar(c) {
 
     if (reventados === 5) {
 
-        const todos = document.querySelectorAll(".corazon");
-        todos.forEach(el => el.remove());
+    const todos = document.querySelectorAll(".corazon");
+    todos.forEach(el => el.remove());
 
-        // mostrar contenedor final
-        document.getElementById("final").style.display = "block";
+    document.getElementById("final").style.display = "block";
 
-        // 1 SEGUNDO → aparece papel
-        setTimeout(() => {
-            document.getElementById("final-papel").style.display = "block";
-        }, 1000);
+    // 1 segundo → papel con texto
+    setTimeout(() => {
+        document.getElementById("final-papel").style.display = "flex";
+    }, 1000);
 
-        // 2 SEGUNDOS → aparece texto + imagen
-        setTimeout(() => {
-            document.getElementById("final-contenido").style.display = "block";
-        }, 2000);   // ← ESTE ES EL "2"
-    }
+    // 2 segundos → imagen abajo
+    setTimeout(() => {
+        document.getElementById("final-imagen").style.display = "block";
+    }, 2000);
 }
 
 </script>
