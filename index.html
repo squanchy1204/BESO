@@ -61,6 +61,48 @@ button {
     to { transform: scale(2); opacity: 0; }
 }
 
+/* 🎞️ BANDAS HORIZONTALES 🎞️ */
+.bandas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    pointer-events: none;
+}
+
+.banda {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+}
+
+.banda img {
+    width: 300px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.izquierda {
+    animation: moverIzquierda 10s linear infinite;
+}
+
+.derecha {
+    animation: moverDerecha 10s linear infinite;
+}
+
+@keyframes moverIzquierda {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@keyframes moverDerecha {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+}
+
 /* ❤️ FINAL ❤️ */
 #final {
     display: none;
@@ -77,6 +119,139 @@ button {
 
 <h1 id="titulo">💘 ¿Quieres ser mi San Valentín? 💘</h1>
 
+<div class="bandas">
+
+    <div class="banda izquierda">
+        <img src="img/fondo_1.gif">
+        <img src="img/fondo_2.gif">
+        <img src="img/fondo_3.gif">
+        <img src="img/fondo_4.gif">
+        <img src="img/fondo_5.gif">
+    </div>
+    
+    <div class="banda derecha">
+        <img src="img/fondo_2.gif">
+        <img src="img/fondo_5.gif">
+        <img src="img/fondo_4.gif">
+        <img src="img/fondo_1.gif">
+        <img src="img/fondo_3.gif">
+    </div>
+
+    <div class="banda izquierda">
+        <img src="img/fondo_3.gif">
+        <img src="img/fondo_1.gif">
+        <img src="img/fondo_5.gif">
+        <img src="img/fondo_2.gif">
+        <img src="img/fondo_4.gif">
+    </div>
+
+    <div class="banda derecha">
+        <img src="img/fondo_5.gif">
+        <img src="img/fondo_4.gif">
+        <img src="img/fondo_3.gif">
+        <img src="img/fondo_2.gif">
+        <img src="img/fondo_1.gif">
+    </div>
+
+    <div class="banda izquierda">
+        <img src="img/fondo_1.gif">
+        <img src="img/fondo_2.gif">
+        <img src="img/fondo_3.gif">
+        <img src="img/fondo_4.gif">
+        <img src="img/fondo_5.gif">
+    </div>
+
+    <div class="banda derecha">
+        <img src="img/fondo_2.gif">
+        <img src="img/fondo_5.gif">
+        <img src="img/fondo_4.gif">
+        <img src="img/fondo_1.gif">
+        <img src="img/fondo_3.gif">
+    </div>
+
+    <div class="banda izquierda">
+        <img src="img/fondo_3.gif">
+        <img src="img/fondo_1.gif">
+        <img src="img/fondo_5.gif">
+        <img src="img/fondo_2.gif">
+        <img src="img/fondo_4.gif">
+    </div>
+
+    <div class="banda derecha">
+        <img src="img/fondo_5.gif">
+        <img src="img/fondo_4.gif">
+        <img src="img/fondo_3.gif">
+        <img src="img/fondo_2.gif">
+        <img src="img/fondo_1.gif">
+    </div>
+
+    <div class="banda izquierda">
+        <img src="img/fondo_1.gif">
+        <img src="img/fondo_2.gif">
+        <img src="img/fondo_3.gif">
+        <img src="img/fondo_4.gif">
+        <img src="img/fondo_5.gif">
+    </div>
+    
+    <div class="banda derecha">
+        <img src="img/fondo_2.gif">
+        <img src="img/fondo_5.gif">
+        <img src="img/fondo_4.gif">
+        <img src="img/fondo_1.gif">
+        <img src="img/fondo_3.gif">
+    </div>
+
+    <div class="banda izquierda">
+        <img src="img/fondo_3.gif">
+        <img src="img/fondo_1.gif">
+        <img src="img/fondo_5.gif">
+        <img src="img/fondo_2.gif">
+        <img src="img/fondo_4.gif">
+    </div>
+
+    <div class="banda derecha">
+        <img src="img/fondo_5.gif">
+        <img src="img/fondo_4.gif">
+        <img src="img/fondo_3.gif">
+        <img src="img/fondo_2.gif">
+        <img src="img/fondo_1.gif">
+    </div>
+
+    <div class="banda izquierda">
+        <img src="img/fondo_1.gif">
+        <img src="img/fondo_2.gif">
+        <img src="img/fondo_3.gif">
+        <img src="img/fondo_4.gif">
+        <img src="img/fondo_5.gif">
+    </div>
+
+    <div class="banda derecha">
+        <img src="img/fondo_2.gif">
+        <img src="img/fondo_5.gif">
+        <img src="img/fondo_4.gif">
+        <img src="img/fondo_1.gif">
+        <img src="img/fondo_3.gif">
+    </div>
+
+    <div class="banda izquierda">
+        <img src="img/fondo_3.gif">
+        <img src="img/fondo_1.gif">
+        <img src="img/fondo_5.gif">
+        <img src="img/fondo_2.gif">
+        <img src="img/fondo_4.gif">
+    </div>
+
+    <div class="banda derecha">
+        <img src="img/fondo_5.gif">
+        <img src="img/fondo_4.gif">
+        <img src="img/fondo_3.gif">
+        <img src="img/fondo_2.gif">
+        <img src="img/fondo_1.gif">
+    </div>
+    
+
+</div>
+
 <img id="foto" class="imagen" src="img/malo_1.gif">
 
 <div id="botones">
@@ -87,10 +262,10 @@ button {
 <div id="contenedor-corazones"></div>
 
 <div id="final">
-    <h1>🥰 Sabía que dirías que sí 💖</h1>
-    <h1>💋 BESITO BESITO 💋</h1>
-    <h1>😍 WUAPAAAAA 😍</h1>
-    <h1>💘 TE QUIERO MUCHO 💘</h1>
+    <h1>🥰 Sabía que dirías que sí </h1>
+    <h1> BESITO BESITO </h1>
+    <h1> WUAPAAAAA </h1>
+    <h1> TE QUIERO MUCHO💖 </h1>
     <img src="img/bueno_1.webp" style="width:900px;border-radius:60px;">
 </div>
 
