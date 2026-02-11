@@ -32,7 +32,7 @@ button {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
-    padding: 70px 60px;
+    padding: 100px 120px;
     border-radius: 40px;
     max-width: 90%;
 }
@@ -150,7 +150,7 @@ button {
     display: none;
     position: fixed;
     inset: 0;
-    background-color: #ffe6eb;
+    background-color: transparent;
     z-index: 9999;
     padding-top: 80px;
     overflow-y: auto;
@@ -208,6 +208,20 @@ button {
 
 .corazon-btn:hover {
     transform: scale(1.1);
+}
+
+/* ❤️ FINAL SECUENCIA ❤️ */
+#final {
+    display: none;
+    text-align: center;
+}
+
+#final-papel {
+    margin: 40px auto;
+}
+
+#final-contenido {
+    margin-top: 20px;
 }
 
 </style>
@@ -383,18 +397,20 @@ button {
     </div>
 
     <div id="final">
-    <div class="caja-papel-final">
 
+    <!-- PAPEL SOLO -->
+    <div id="final-papel" class="caja-papel-final" style="display:none;"></div>
+
+    <!-- TEXTO + IMAGEN -->
+    <div id="final-contenido" style="display:none;">
         <h1>🥰 Sabía que dirías que sí 💖</h1>
         <h1>💋 BESITO BESITO 💋</h1>
         <h1>😍 WUAPAAAAA 😍</h1>
         <h1>💘 TE QUIERO MUCHO 💘</h1>
 
+        <img src="img/bueno_2.webp" class="imagen pequeña" style="display:block;">
     </div>
 
-    <img src="img/bueno_2.webp" class="imagen pequeña" style="display:block;">
-
-    </div>
 </div>
 
 <script>
@@ -494,13 +510,21 @@ function explotar(c) {
 
     if (reventados === 5) {
 
-        // eliminar todos los corazones restantes
         const todos = document.querySelectorAll(".corazon");
         todos.forEach(el => el.remove());
 
+        // mostrar contenedor final
+        document.getElementById("final").style.display = "block";
+
+        // 1 SEGUNDO → aparece papel
         setTimeout(() => {
-            document.getElementById("final").style.display = "block";
-        }, 400);
+            document.getElementById("final-papel").style.display = "block";
+        }, 1000);
+
+        // 2 SEGUNDOS → aparece texto + imagen
+        setTimeout(() => {
+            document.getElementById("final-contenido").style.display = "block";
+        }, 2000);   // ← ESTE ES EL "2"
     }
 }
 
